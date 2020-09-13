@@ -31,21 +31,21 @@ def get_hello(user_name):
 
 # Ответ на запрос
 def get_answers(user_text):
-    countInset = 0
+    countInset = -1
     currentService = []
     for i in MOCK:
         try:
-            if i['name'].index(user_text) != ValueError:
+            if i['name'].index(user_text.lower()) != ValueError:
                 countInset += 1
 
         except ValueError:
             continue
 
         currentService = i['print_docs']
-
+    print(countInset)
     if countInset > 1:
         return 'Найдено {} варианта, уточните вопрос'.format(countInset)
-    elif countInset == 0:
+    elif countInset == -1:
         return 'Ничего не найдено. Уточните запрос'
     else:
         return 'Вам необходимо собрать следующие документы: \n\n{}'.format('\n\n- '.join(currentService))
