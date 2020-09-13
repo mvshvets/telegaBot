@@ -42,7 +42,7 @@ def get_answers(user_text):
             continue
 
         currentService = i['print_docs']
-    print(countInset)
+    print(user_text)
     if countInset > 1:
         return 'Найдено {} варианта, уточните вопрос'.format(countInset)
     elif countInset == -1:
